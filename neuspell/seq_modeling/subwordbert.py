@@ -34,7 +34,7 @@ def load_pretrained(model, checkpoint_path, optimizer=None, device='cuda'):
         download_pretrained_model(checkpoint_path)
         checkpoint_data = torch.load(os.path.join(checkpoint_path, "pytorch_model.bin"), map_location=map_location)
 
-    model.load_state_dict(checkpoint_data)
+    model.load_state_dict(checkpoint_data, strict=False)
 
     return model
 
